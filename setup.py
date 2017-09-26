@@ -1,13 +1,15 @@
-from setuptools import setup
+from __future__ import absolute_import, division, print_function, unicode_literals
+import sys
 import os
+from setuptools import setup, find_packages
 
 def readme():
     with open('README.rst') as f:
         return f.read()
     
-setup(name='nsga2lib',
-      version='2.2',
-      description='Libraries for performing nsga2 calibration.',
+setup(name='swatcalibrate',
+      version='0.1.1',
+      description='Libraries for performing nsga2 swat calibration.',
       long_description=readme(),
       classifiers=[
         "Programming Language :: Python",
@@ -22,8 +24,9 @@ setup(name='nsga2lib',
       author_email='ercanm@email.sc.edu',
       license='MIT',
       packages=['nsga2lib'],
-      install_requires=['nsga2lib','numpy'],
-	  data_files   = [(os.path.join('nsga2lib','ScriptsForSWATtxt'),[os.path.join('nsga2lib','ScriptsForSWATtxt','Extract_rch.py'),
+      install_requires=["Pandas >= 0.16.0", 
+                        "Numpy >= 0.7.0"],
+      data_files   = [(os.path.join('nsga2lib','ScriptsForSWATtxt'),[os.path.join('nsga2lib','ScriptsForSWATtxt','Extract_rch.py'),
 								  os.path.join('nsga2lib','ScriptsForSWATtxt','SWAT_ParameterEdit.py'),
 								  os.path.join('nsga2lib','ScriptsForSWATtxt','Makefile'),
 								  os.path.join('nsga2lib','ScriptsForSWATtxt','swat2012_627'),
